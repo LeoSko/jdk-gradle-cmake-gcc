@@ -1,4 +1,4 @@
-FROM gradle:jdk11-slim
+FROM alpine:latest
 
 ENV FLATC_HOME=/usr/local/bin
 
@@ -10,3 +10,7 @@ RUN git clone https://github.com/google/flatbuffers.git
 WORKDIR /temp/flatbuffers
 RUN cmake -G "Unix Makefiles" && \
     make install
+    
+FROM gradle:jdk11-slim
+WORKDIR /usr/local/bin
+COPY --from=0 /temp/flatbuffers/flatc /usr/local/bin/flatc
