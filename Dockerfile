@@ -4,6 +4,8 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends sudo
+    
+ENV FLATC_HOME=/usr/local/bin
 
 COPY --from=neomantra/flatbuffers /usr/local/bin/flatc /usr/local/bin/flatc
 COPY --from=neomantra/flatbuffers /usr/local/include/flatbuffers /usr/local/include/flatbuffers
