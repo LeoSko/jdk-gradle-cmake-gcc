@@ -4,7 +4,7 @@ ENV FLATC_HOME=/usr/local/bin
 
 USER root
 
-RUN apk update && apk add --no-cache apt-utils git gcc g++ make cmake
+RUN apk update && apk add --no-cache git gcc g++ make cmake
 WORKDIR /temp
 RUN git clone https://github.com/google/flatbuffers.git
 WORKDIR /temp/flatbuffers
