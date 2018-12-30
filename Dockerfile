@@ -1,5 +1,7 @@
 FROM gradle:jdk11-slim
 
+USER root
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends sudo
 
